@@ -4,7 +4,8 @@ class DigitToWord {
   static String toWord(String number, StrType type,
       {String separator: ',',
         bool isMoney: false,
-        String biggerThanCapacity: "طول عدد باید کمتر از 16 رقم باشد."}) {
+        String currency = "",
+        String biggerThanCapacity: "يجب أن يكون طول الرقم أقل من 16 رقمًا."}) {
 
     String _words = "";
     String _result = "";
@@ -22,10 +23,10 @@ class DigitToWord {
 
     switch (type) {
       case StrType.NumWord:
-        _words = _NumWord.toWord(numInt, isMoney);
+        _words = _NumWord.toWord(numInt, isMoney,currency);
         break;
       case StrType.StrWord:
-        _words = _StrWord.toWord(numInt, isMoney);
+        _words = _StrWord.toWord(numInt, isMoney,currency);
         break;
     }
 
@@ -37,7 +38,7 @@ class DigitToWord {
 
 
 class _NumWord {
-  static String toWord(String inputNumber, bool isMoney) {
+  static String toWord(String inputNumber, bool isMoney,[String currency]) {
     try {
       int number = int.parse(inputNumber);
       if (number == 0) {
@@ -73,7 +74,7 @@ class _NumWord {
           checkBillions = "";
           break;
         default:
-          checkBillions = "$billions" + " میلیارد و";
+          checkBillions = "$billions" + " مليار و";
       }
       result += checkBillions;
 
@@ -84,7 +85,7 @@ class _NumWord {
           checkMillions = "";
           break;
         default:
-          checkMillions = "$millions" + " میلیون و";
+          checkMillions = "$millions" + " مليون و";
       }
       result = result + checkMillions;
 
@@ -94,7 +95,7 @@ class _NumWord {
           checkHundredThousands = "";
           break;
         default:
-          checkHundredThousands = "$hundredThousands" + " هزار و";
+          checkHundredThousands = "$hundredThousands" + " الف و";
       }
       result = result + checkHundredThousands;
 
@@ -112,16 +113,16 @@ class _NumWord {
 
       result = result + "$checkThousand";
 
-      return isMoney ? result + " تومان" : result;
+      return isMoney ? result + currency : result;
     } on FormatException catch (e) {
       print(e.toString());
-      return "فرمت ورودی اشتباه است.";
+      return "";
     }
   }
 }
 
 class _StrWord {
-  static String toWord(String inputNumber, bool isMoney) {
+  static String toWord(String inputNumber, bool isMoney,[String currency]) {
     try {
       int number = int.parse(inputNumber);
       if (number == 0) {
@@ -149,7 +150,7 @@ class _StrWord {
           checkTrillion = _convertNum(trillion) + " تریلیون ";
           break;
         default:
-          checkTrillion = _convertNum(trillion) + " تریلیون و";
+          checkTrillion = _convertNum(trillion) + " تريليون و";
       }
       String result = checkTrillion;
 
@@ -160,7 +161,7 @@ class _StrWord {
           checkBillions = "";
           break;
         default:
-          checkBillions = _convertNum(billions) + " میلیارد و";
+          checkBillions = _convertNum(billions) + " مليار و";
       }
       result += checkBillions;
 
@@ -171,7 +172,7 @@ class _StrWord {
           checkMillions = "";
           break;
         default:
-          checkMillions = _convertNum(millions) + " میلیون و";
+          checkMillions = _convertNum(millions) + " مليون و";
       }
       result = result + checkMillions;
 
@@ -181,11 +182,11 @@ class _StrWord {
           checkHundredThousands = "";
           break;
         case 1:
-          checkHundredThousands = "هزار و";
+          checkHundredThousands = "الف و";
           break;
         default:
           checkHundredThousands =
-              _convertNum(hundredThousands) + " هزار و";
+              _convertNum(hundredThousands) + " الف و";
       }
       result = result + checkHundredThousands;
 
@@ -197,7 +198,7 @@ class _StrWord {
         result = result.substring(0, result.length - 2);
       }
 
-      return isMoney ? result + " تومان" : result;
+      return isMoney ? result + currency : result;
     } on FormatException catch (e) {
       print(e.toString());
       return "فرمت ورودی اشتباه است.";
@@ -207,51 +208,51 @@ class _StrWord {
   static String _convertNum(int number) {
     List<String> tensNames = [
       "",
-      " ده و",
-      " بیست و",
-      " سی و",
-      " چهل و",
-      " پنجاه و",
-      " شصت و",
-      " هفتاد و",
-      " هشتاد و",
-      " نود و"
+      " عشرة و",
+      " عشرين و",
+      " ثلاثين و",
+      " اربعين و",
+      " خمسين و",
+      " ستين و",
+      " سبعين و",
+      " ثمانين و",
+      " تسعين و"
     ];
 
     List<String> numNames = [
       "",
-      " یک",
-      " دو",
-      " سه",
-      " چهار",
-      " پنج",
-      " شش",
-      " هفت",
-      " هشت",
-      " نه",
-      " ده",
-      " یازده",
-      " دوازده",
-      " سیزده",
-      " چهارده",
-      " پانزده",
-      " شانزده",
-      " هفده",
-      " هجده",
-      " نوزده"
+      " واحد",
+      " اثنين",
+      " ثلاثة",
+      " اربعة",
+      " خمسة",
+      " ستة",
+      " سبعة",
+      " ثمانية",
+      " تسعى",
+      " عشرة",
+      " أحد عشر",
+      " اثنى عشر",
+      " ثلاثة عشر",
+      " اربع عشر",
+      " خمس عشر",
+      " سادس عشر",
+      " سبعة عشر",
+      " ثمانية عشر",
+      " تسع عشر"
     ];
 
     List<String> thousandsNames = [
       "",
-      " صد و",
-      " دویست و",
-      " سیصد و",
-      " چهارصد و",
-      " پانصد و",
-      " ششصد و",
-      " هفتصد و",
-      " هشتصد و",
-      " نهصد و"
+      " مئة و",
+      " مائتان و",
+      " ثلاثمائه و",
+      " أربعة مئة و",
+      " خمسمائة و",
+      " ستمائة و",
+      " سبعمائة و",
+      " ثمانمائة و",
+      " تسعمائة و"
     ];
     String soFar;
     if (number % 100 < 20) {

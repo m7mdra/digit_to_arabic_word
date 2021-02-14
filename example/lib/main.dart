@@ -62,7 +62,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
-                    fontFamily: "Vazir"
                 ),
                 onChanged: (str)=>setState(() {}),
                 decoration: new InputDecoration(
@@ -78,67 +77,61 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8,horizontal: 8),
-              child: Text("قابلیتهای پکیج:",
+              child: Text("مميزات المكتبة:",
                 textDirection: TextDirection.rtl,
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
-                    fontFamily: "Vazir"
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8,horizontal: 8),
-              child: Text("1.تبدیل رقم به حروف (بدون تبدیل اعداد):",
+              child: Text("1.تحويل الأرقام إلى أحرف (بدون تحويل الأرقام):",
                 textDirection: TextDirection.rtl,
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
-                    fontFamily: "Vazir"
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 4,horizontal: 8),
-              child: Text(DigitToWord.toWord(_controller.value.text,StrType.NumWord,isMoney: true,separator: "."),
+              child: Text(DigitToWord.toWord(_controller.value.text,StrType.NumWord,isMoney: true,separator: ".",currency: " جنيه"),
                 textDirection: TextDirection.rtl,
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
-                    fontFamily: "Vazir"
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8,horizontal: 8),
-              child: Text("2.تبدیل رقم به حروف (همراه با تبدیل اعداد):",
+              child: Text("2. تحويل الأرقام إلى أحرف (مع تحويل الأرقام):",
                 textDirection: TextDirection.rtl,
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
-                    fontFamily: "Vazir"
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 4,horizontal: 8),
-              child: Text(DigitToWord.toWord(_controller.value.text,StrType.StrWord),
+              child: Text(DigitToWord.toWord(_controller.value.text,StrType.StrWord,currency: " جنيه "),
                 textDirection: TextDirection.rtl,
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
-                    fontFamily: "Vazir"
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8,horizontal: 8),
-              child: Text("3.جداسازی سه رقمی اعداد به صورت معمول:",
+              child: Text("3.افصل بين الأرقام المكونة من ثلاثة أرقام:",
                 textDirection: TextDirection.rtl,
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
-                    fontFamily: "Vazir"
                 ),
               ),
             ),
@@ -149,18 +142,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
-                    fontFamily: "Vazir"
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8,horizontal: 8),
-              child: Text("4.جداسازی سه رقمی اعداد به صورت (TextInputFormatter):",
+              child: Text("4. فصل رقم مكون من ثلاثة أرقام (TextInputFormatter):",
                 textDirection: TextDirection.rtl,
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
-                    fontFamily: "Vazir"
                 ),
               ),
             ),
@@ -174,7 +165,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
-                    fontFamily: "Vazir"
                 ),
                 onChanged: (str)=>setState(() {}),
                 decoration: new InputDecoration(
