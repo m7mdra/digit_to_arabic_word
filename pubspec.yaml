@@ -1,8 +1,8 @@
-name: digit_to_persian_word
-description: Flutter package for changing digit (up to 16 digits) to the Persian word and add separate to an integer Convenient and practical.
+name: digit_to_arabic_word
+description: Flutter package for changing digit (up to 16 digits) to the Arabic word and add separate to an integer Convenient and practical.
 version: 1.0.5
-author: Resfandiari <resfandiari.dev@gamil.com>
-homepage: https://github.com/resfandiari/digit_to_persian_word
+author: m7mdra <xm7mdrax@gmail.com@gamil.com>
+homepage: https://github.com/m7mdra/digit_to_arabic_word
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

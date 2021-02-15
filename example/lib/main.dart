@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Digit To Persian Word'),
+      home: MyHomePage(title: 'Flutter Digit To Arabic Word'),
       debugShowCheckedModeBanner: false,
     );
   }
