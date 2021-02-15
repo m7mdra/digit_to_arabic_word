@@ -6,7 +6,7 @@ this library is a fork from ![Source](https://github.com/resfandiari/digit_to_pe
 
 demo:
 
-![](example.png)
+![](example1.png)
 
 ## Add dependency
 ```
